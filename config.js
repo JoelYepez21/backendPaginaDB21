@@ -1,4 +1,4 @@
-const PAGE_URL = process.env.NODE_ENV === 'production' ? 'palceholder' : 'http://localhost:5173';
+const PAGE_URL = process.env.NODE_ENV === 'production' ? 'palceholder' : 'http://localhost:';
 
 const MONGO_URI =
   process.env.NODE_ENV === 'production' ? process.env.MONGO_URI_PROD : process.env.MONGO_URI_TEST;

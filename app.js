@@ -5,7 +5,7 @@ const usersRouter = require('./controllers/users');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const loginRouter = require('./controllers/login');
-// const path = require('path');
+const path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
 const sesionRouter = require('./controllers/sesion');
@@ -16,7 +16,6 @@ const logoutRouter = require('./controllers/logout');
 const metodosdepagoRouter = require('./controllers/metodosDePago');
 const pagosRouter = require('./controllers/pagos');
 const PdfFiletRouter = require('./controllers/fichaMedica');
-const path = require('path');
 const ImagenPerfilRouter = require('./controllers/imagenPerfil');
 const { MONGO_URI } = require('./config');
 
@@ -49,5 +48,11 @@ app.use('/api/uploads', userExtractor, express.static(path.resolve('uploads')));
 app.use('/api/imagenPerfil', userExtractor, ImagenPerfilRouter);
 app.use('/api/imagenPerfil', userExtractor, express.static(path.resolve('imagenPerfil')));
 // app.use('/api/users/:id/:token', usersRouter);
+
+app.use(express.static(path.resolve(__dirname, 'dist')));
+
+app.get('/*', function (request, response) {
+  response.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+});
 
 module.exports = app;
