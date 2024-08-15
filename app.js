@@ -44,9 +44,9 @@ app.use('/api/logout', userExtractor, logoutRouter);
 app.use('/api/metodos', userExtractor, metodosdepagoRouter);
 app.use('/api/pagos', userExtractor, pagosRouter);
 app.use('/api/pdffiles', userExtractor, PdfFiletRouter);
-app.use('/api/uploads', userExtractor, express.static(path.resolve('uploads')));
+app.use('/api/uploads', express.static(path.resolve('uploads')));
 app.use('/api/imagenPerfil', userExtractor, ImagenPerfilRouter);
-app.use('/api/imagenPerfil', userExtractor, express.static(path.resolve('imagenPerfil')));
+app.use('/api/imagenPerfil', express.static(path.resolve('imagenPerfil')));
 // app.use('/api/users/:id/:token', usersRouter);
 
 app.use(express.static(path.resolve(__dirname, 'dist')));
